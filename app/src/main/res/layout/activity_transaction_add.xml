@@ -22,14 +22,15 @@
             android:textColor="@color/white"/>
 
         <TextView
+            android:id="@+id/addTransactionTVSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
-            android:paddingTop="30dp"
-            android:textSize="30dp"
             android:layout_alignParentRight="true"
+            android:paddingTop="30dp"
             android:paddingRight="20dp"
-            android:textColor="@color/white"/>
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -44,7 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="Enter Amount"/>
+            android:saveEnabled="true"
+            android:hint="Enter Amount" />
 
         <LinearLayout
             android:id="@+id/dropdown_menu"
@@ -57,13 +59,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:textSize="18dp"
-                android:hint="Select Category: "/>
+                android:hint="Select Category: "
+                android:textSize="18dp" />
 
             <Spinner
                 android:id="@+id/spinner_category"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:saveEnabled="true"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
@@ -72,7 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="Enter Description"/>
+            android:saveEnabled="true"
+            android:hint="Enter Description" />
 
         <LinearLayout
             android:id="@+id/dategetter"
@@ -85,44 +89,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:textSize="18dp"
+                android:text="Select Reminder"
                 android:textColor="@color/white"
-                android:text="Select Date"/>
+                android:textSize="15dp" />
 
             <TextView
-                android:id="@+id/thedate"
+                android:id="@+id/transactionAddTVReminder"
                 android:layout_width="match_parent"
-                android:layout_marginTop="11dp"
                 android:layout_height="wrap_content"
-                android:textSize="25dp"
-                android:hint="date" />
+                android:layout_marginTop="11dp"
+                android:hint="date"
+                android:saveEnabled="true"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/timegetter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/trans_time_button"
+                android:id="@+id/addTransactionBtnUploadPic"
                 android:layout_width="wrap_content"
-                android:onClick="popTimePicker"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:textSize="18dp"
-                android:textColor="@color/white"
-                android:text="Select Time"/>
+                android:layout_gravity="center_vertical"
+                android:text="Upload Picture" />
 
-            <TextView
-                android:id="@+id/thetime"
-                android:layout_width="match_parent"
-                android:layout_marginTop="11dp"
-                android:layout_height="wrap_content"
-                android:textSize="25dp"
-                android:hint="time" />
-
+            <ImageView
+                android:id="@+id/addTransactionImageView"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:saveEnabled="true"
+                android:layout_margin="10dp"/>
         </LinearLayout>
 
     </LinearLayout>

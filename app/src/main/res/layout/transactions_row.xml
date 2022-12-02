@@ -3,32 +3,54 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_margin="20dp">
+    android:layout_margin="10dp"
+    android:id="@+id/transactionRow">
 
     <ImageView
-        android:id="@+id/transactionRowIvIcon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@color/black" />
+        android:id="@+id/transactionRowIVImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
 
     <TextView
-        android:id="@+id/transactionRowTvName"
+        android:id="@+id/transactionRowTVCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/transactionRowIvIcon"
+        android:layout_toEndOf="@+id/transactionRowIVImage"
         android:text="Salary"
         android:textColor="@color/black"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/transactionRowTVDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/transactionRowTVCategory"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/transactionRowIVImage"
+        android:text="Description"
+        android:textColor="#494949"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/transactionRowTvAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
         android:text="5000"
         android:textColor="#FF03A9F4"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/transactionRowTVTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/transactionRowTvAmount"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:text="Time"
+        android:textColor="#494949"
+        android:textSize="15sp" />
 </RelativeLayout>

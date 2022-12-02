@@ -11,30 +11,30 @@
 
 
     <string-array name="categories">
-        <item>Food and Beverage</item>
-        <item>Medical Bill</item>
-        <item>Transportation</item>
-        <item>Rent</item>
-        <item>Phone Bill</item>
-        <item>Water Bill</item>
-        <item>Gas Bill</item>
-        <item>Electricity Bill</item>
-        <item>Internet Bill</item>
-        <item>Television Bill</item>
-        <item>Insurance</item>
-        <item>Education</item>
-        <item>Pets</item>
-        <item>Shopping</item>
-        <item>Fitness</item>
-        <item>Makeup</item>
-        <item>Car Maintenance</item>
-        <item>Entertainment</item>
-        <item>Debt</item>
-        <item>Loan</item>
-        <item>Household Appliances</item>
-        <item>Personal Items</item>
-        <item>Gifts</item>
-        <item>Donations</item>
-        <item>Other</item>
+        <item name="Food and Beverage">Food and Beverage</item>
+        <item name="Medical Bill">Medical Bill</item>
+        <item name="Transportation">Transportation</item>
+        <item name="Rent">Rent</item>
+        <item name="Phone Bill">Phone Bill</item>
+        <item name="Water Bill">Water Bill</item>
+        <item name="Gas Bill">Gas Bill</item>
+        <item name="Electricity Bill">Electricity Bill</item>
+        <item name="Internet Bil">Internet Bill</item>
+        <item name="Television Bill">Television Bill</item>
+        <item name="Insurance">Insurance</item>
+        <item name="Education">Education</item>
+        <item name="Pets">Pets</item>
+        <item name="Shopping">Shopping</item>
+        <item name="Fitness">Fitness</item>
+        <item name="Makeup">Makeup</item>
+        <item name="Car Maintenance">Car Maintenance</item>
+        <item name="Entertainment">Entertainment</item>
+        <item name="Debt">Debt</item>
+        <item name="Loan">Loan</item>
+        <item name="Household Appliances">Household Appliances</item>
+        <item name="Personal Items">Personal Items</item>
+        <item name="Gifts">Gifts</item>
+        <item name="Donations">Donations</item>
+        <item name="Other">Other</item>
     </string-array>
 </resources>
