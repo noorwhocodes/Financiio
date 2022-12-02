@@ -73,13 +73,14 @@
                 android:textStyle="bold"/>
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_weight="0.2"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/idrv"
+            android:layout_weight="0.3"
             android:layout_width="match_parent"
-            android:background="@drawable/backdrop"
+            android:visibility="visible"
             android:layout_height="0dp"/>
         <LinearLayout
-            android:layout_weight="0.2"
+            android:layout_weight="0.1"
             android:layout_width="match_parent"
             android:layout_height="0dp"/>
         <LinearLayout

@@ -29,28 +29,27 @@ public class signup extends AppCompatActivity {
     TextView signup;
 
     //noor's = "http://192.168.100.82/loginsignup/insert.php"
-    private static final String url ="http://192.168.100.82/loginsignup/insert.php";
+    private static final String url ="http://192.168.18.40/project/register2.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        signup = findViewById(R.id.idsignup);
+        signup = findViewById(R.id.signUpTVSignUP);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 insertdata();
-                startActivity(new Intent(signup.this,Login.class));
             }
         });
     }
 
     private void insertdata() {
-        name = findViewById(R.id.idname);
-        email = findViewById(R.id.idemail);
-        password = findViewById(R.id.idpassword);
+        name = findViewById(R.id.nameETSignUp);
+        email = findViewById(R.id.emailETSignUp);
+        password = findViewById(R.id.passwordETSignUp);
 
         final String n =name.getText().toString().trim();
         final String e =email.getText().toString().trim();
@@ -61,10 +60,11 @@ public class signup extends AppCompatActivity {
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                name.setText("");
-                email.setText("");
-                password.setText("");
+//                name.setText("");
+//                email.setText("");
+//                password.setText("");
                 Toast.makeText(getApplicationContext(),response.toString(), Toast.LENGTH_LONG).show();
+                startActivity(new Intent(signup.this,Login.class));
 
             }
         }, new Response.ErrorListener() {
@@ -74,7 +74,6 @@ public class signup extends AppCompatActivity {
 
             }
         }){
-
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
@@ -82,8 +81,6 @@ public class signup extends AppCompatActivity {
                 param.put("name",n);
                 param.put("email",e);
                 param.put("password",p);
-
-
                 return param;
             }
         };

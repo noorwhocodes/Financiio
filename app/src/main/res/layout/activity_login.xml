@@ -27,6 +27,7 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/idemail"
             android:layout_weight="0.1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -36,6 +37,7 @@
             android:hint="Email" />
 
         <EditText
+            android:id="@+id/idpwd"
             android:layout_weight="0.1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
