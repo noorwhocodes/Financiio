@@ -242,7 +242,8 @@ public class TransactionAdd extends AppCompatActivity {
         alarmManager= (AlarmManager) getSystemService(TransactionAdd.ALARM_SERVICE);
         Intent intent=new Intent(TransactionAdd.this,AlarmReceiver.class);
         pendingIntentAlarm=PendingIntent.getBroadcast(TransactionAdd.this, 0, intent, 0);
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, time, AlarmManager.INTERVAL_DAY, pendingIntentAlarm);
+//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, time, AlarmManager.INTERVAL_DAY, pendingIntentAlarm);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, time, pendingIntentAlarm);
         Toast.makeText(this, "Alarm Set Successfully", Toast.LENGTH_SHORT).show();
     }
 
@@ -338,10 +339,18 @@ public class TransactionAdd extends AppCompatActivity {
         }
 
         for(int i=0; i<counts ; i++) {
-//            for (int j = 0; j < 6; j++) {
-//                Log.d("j: "+j+ " : ", "getItemID: "+DB_date[i][j]);
-//            }
-            if(DB_date[i][1] == amount && DB_date[i][2] == category && DB_date[i][4] == time){
+            for (int j = 0; j < 6; j++) {
+                Log.d("j: "+j+ " : ", "getItemID: "+DB_date[i][j]);
+            }
+            Log.d("DB a", "getItemID: "+DB_date[i][1]);
+            Log.d("a", "getItemID: "+amount);
+            Log.d("DB c", "getItemID: "+DB_date[i][2]);
+            Log.d("c", "getItemID: "+category);
+            Log.d("DB t", "getItemID: "+DB_date[i][4]);
+            Log.d("t", "getItemID: "+time);
+
+            if(DB_date[i][1].equals(amount) && DB_date[i][2].equals(category) && DB_date[i][4].equals(time)){
+                Log.d("ITEM ID", "getItemID: "+DB_date[i][0]);
                 return itemID = DB_date[i][0];
             }
         }
