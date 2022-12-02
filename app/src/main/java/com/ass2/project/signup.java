@@ -26,43 +26,55 @@ import java.util.Map;
 public class signup extends AppCompatActivity {
 
     EditText name, email,password;
-    TextView signup;
+    TextView signup, tvLogin;
 
     //noor's = "http://192.168.100.82/loginsignup/insert.php"
-    private static final String url ="http://192.168.18.40/project/register2.php";
+    private static final String url ="http://192.168.18.40/project/register.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        signup = findViewById(R.id.signUpTVSignUP);
+        signup = findViewById(R.id.signUpTVSignUp);
+        tvLogin = findViewById(R.id.signUpTVSignIn);
+        name = findViewById(R.id.nameETSignUp);
+        email = findViewById(R.id.emailETSignUp);
+        password = findViewById(R.id.passwordETSignUp);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!name.getText().toString().trim().equals("") &&
+                        !email.getText().toString().trim().equals("") &&
+                        !password.getText().toString().trim().equals("")){
+                    insertdata();
+                } else{
+                    name.forceLayout();
+                    email.forceLayout();
+                    password.forceLayout();
+                    Toast.makeText(signup.this, "Please input Required Data", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
-                insertdata();
+        tvLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(signup.this, Login.class));
+                Toast.makeText(signup.this, "Log In Click", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
 
     private void insertdata() {
-        name = findViewById(R.id.nameETSignUp);
-        email = findViewById(R.id.emailETSignUp);
-        password = findViewById(R.id.passwordETSignUp);
-
         final String n =name.getText().toString().trim();
         final String e =email.getText().toString().trim();
         final String p =password.getText().toString().trim();
 
-
-
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-//                name.setText("");
-//                email.setText("");
-//                password.setText("");
                 Toast.makeText(getApplicationContext(),response.toString(), Toast.LENGTH_LONG).show();
                 startActivity(new Intent(signup.this,Login.class));
 

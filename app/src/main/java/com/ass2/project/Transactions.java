@@ -16,8 +16,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.trusted.sharing.ShareTarget;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,6 +122,48 @@ public class Transactions extends AppCompatActivity {
                 filter(editable.toString());
             }
         });
+    }
+
+    public void getMysqlData(){
+
+        StringRequest request=new StringRequest(Request.Method.GET,
+                "http://192.168.18.40/project/Get.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject=new JSONObject(response);
+                            String success=jsonObject.getString("code");
+                            JSONArray jsonArray=new JSONArray("data");
+
+                            if(success.equals("1")){
+                                for(int i=0;i<jsonArray.length();i++) {
+                                    JSONObject object = jsonArray.getJSONObject(i);
+
+                                    String itemID=object.getString("itemID");
+                                    String amount=object.getString("amount");
+                                    String category=object.getString("category");
+                                    String description=object.getString("description");
+                                    String time=object.getString("time");
+                                    String image=object.getString("image");
+
+                                }
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Transactions.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(request);
     }
 
     private void filter(String text) {

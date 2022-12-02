@@ -27,24 +27,26 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/idemail"
+            android:id="@+id/emailETLogin"
             android:layout_weight="0.1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:paddingLeft="20dp"
             android:background="@drawable/border"
             android:layout_marginBottom="15dp"
-            android:hint="Email" />
+            android:hint="Email"
+            android:inputType="textEmailAddress"/>
 
         <EditText
-            android:id="@+id/idpwd"
+            android:id="@+id/passwordETLogin"
             android:layout_weight="0.1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@drawable/border"
             android:layout_marginBottom="15dp"
             android:hint="Password"
-            android:paddingLeft="20dp" />
+            android:paddingLeft="20dp"
+            android:inputType="textPassword"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,7 +57,7 @@
                 android:layout_height="match_parent" />
 
             <TextView
-                android:id="@+id/signIn"
+                android:id="@+id/signInTVLogIn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/button_back"
@@ -125,7 +127,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/idcreateone"
+                android:id="@+id/createAccountTVLogIn"
                 android:layout_weight="0.4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

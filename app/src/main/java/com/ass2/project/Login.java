@@ -20,14 +20,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 public class Login extends AppCompatActivity {
     EditText email,password;
-    ImageView login;
 
-    private static final String url ="http://192.168.100.82/loginsignup/get.php";
+    private static final String url ="http://192.168.18.40/project/get_login.php";
 
     TextView signIn;
     TextView create_one;
@@ -38,19 +39,25 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        signIn = findViewById(R.id.signIn);
-        create_one = findViewById(R.id.idcreateone);
+        signIn = findViewById(R.id.signInTVLogIn);
+        create_one = findViewById(R.id.createAccountTVLogIn);
         forgotPassword = findViewById(R.id.mainActivityForgotPassword);
 
-        email = findViewById(R.id.idemail);
-        password = findViewById(R.id.idpwd);
+        email = findViewById(R.id.emailETLogin);
+        password = findViewById(R.id.passwordETLogin);
 
-        login = findViewById(R.id.idlogin);
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Login.this,home_page.class));
+                if(!email.getText().toString().trim().equals("") &&
+                        !password.getText().toString().trim().equals("")) {
+                    getdata();
+                } else{
+                    email.forceLayout();
+                    password.forceLayout();
+                    Toast.makeText(Login.this, "Please Input All Fields", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         create_one.setOnClickListener(new View.OnClickListener() {
@@ -63,15 +70,6 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Login.this,ForgotPassword.class));
-            }
-        });
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                getdata();
-                Toast.makeText(Login.this, "loginned", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Login.this,MainActivity.class));
             }
         });
     }
@@ -87,9 +85,14 @@ public class Login extends AppCompatActivity {
             public void onResponse(String response) {
 
                 //volley sy jo response araha woh store kar rhy iss mein
-                email.setText("");
-                password.setText("");
+                Toast.makeText(Login.this, "Logged In", Toast.LENGTH_SHORT).show();
                 Toast.makeText(Login.this,response.toString(), Toast.LENGTH_LONG).show();
+
+                ArrayList<String> resultResponse=stringTok(response.toString(), ",");
+                if(resultResponse.get(1).equals("\"resultcode\":1")) {
+                    startActivity(new Intent(Login.this, home_page.class));
+                    finish();
+                }
 
             }
         }, new Response.ErrorListener() {
@@ -116,5 +119,14 @@ public class Login extends AppCompatActivity {
 
         RequestQueue queue= Volley.newRequestQueue(Login.this);
         queue.add(request);
+    }
+
+    private ArrayList<String> stringTok(String s, String delim){
+        StringTokenizer stringTokenizer = new StringTokenizer(s, delim);
+        ArrayList<String> arrayList=new ArrayList<String>();
+        while (stringTokenizer.hasMoreTokens()) {
+            arrayList.add(stringTokenizer.nextToken());
+        }
+        return arrayList;
     }
 }
