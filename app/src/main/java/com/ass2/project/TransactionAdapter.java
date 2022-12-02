@@ -20,6 +20,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.sql.SQLData;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -107,5 +108,10 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             image=itemView.findViewById(R.id.transactionRowIVImage);
             relativeLayout=itemView.findViewById(R.id.transactionRow);
         }
+    }
+
+    public void filterList(ArrayList<TransactionModel> filteredList) {
+        modelList=filteredList;
+        notifyDataSetChanged();
     }
 }

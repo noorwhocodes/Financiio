@@ -9,61 +9,97 @@
     tools:context=".Transactions">
 
     <RelativeLayout
-        android:id="@+id/Header"
+        android:id="@+id/headerTransactions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/transactionsTvMoreOptions"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/ic_baseline_more_vert_24" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="15dp"
-            android:layout_toStartOf="@+id/transactionsTvMoreOptions"
-            android:src="@drawable/ic_baseline_search_24" />
-
-        <TextView
-            android:id="@+id/transactionsTvBalance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:text="Balance"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
         <RelativeLayout
+            android:id="@+id/searchHeaderTransactions"
+            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/transactionsTvBalance"
-            android:gravity="center">
+            android:layout_margin="15dp">
+
+            <EditText
+                android:id="@+id/searchBarETTransactions"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:hint="Search Here"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"/>
+
+            <ImageView
+                android:id="@+id/crossIVTransaction"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/cross"
+                android:layout_toEndOf="@+id/searchBarETTransactions"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/normalHeaderTransactions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/transactionsTvMoreOptions"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/ic_baseline_more_vert_24" />
+
+            <ImageView
+                android:id="@+id/searchIVTransaction"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_toStartOf="@+id/transactionsTvMoreOptions"
+                android:src="@drawable/ic_baseline_search_24" />
 
             <TextView
-                android:id="@+id/transactionsTvCurrency"
+                android:id="@+id/transactionsTvBalance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginRight="5dp"
-                android:text="Rs."
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="Balance"
                 android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/transactionsTvAmount"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/transactionsTvCurrency"
-                android:text="6000"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:layout_below="@+id/transactionsTvBalance"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/transactionsTvCurrency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="5dp"
+                    android:text="Rs."
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/transactionsTvAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/transactionsTvCurrency"
+                    android:text="6000"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
@@ -109,15 +145,17 @@
 
     </RelativeLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="#CDCDCD"/>
-
     <LinearLayout
+        android:id="@+id/collectiveDetailsLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="10dp"
+            android:background="#CDCDCD"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -223,16 +261,16 @@
 
         </RelativeLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#CDCDCD"/>
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#CDCDCD"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transactionsRV"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"/>
 
 </LinearLayout>
