@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">project</string>
+    <string name="save">Save</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="bio">Bio</string>
+    <string name="edit_name">Edit Name</string>
+    <string name="gender">Gender</string>
+    <string name="change_password">Change Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+
+
+    <string-array name="categories">
+        <item>Food and Beverage</item>
+        <item>Medical Bill</item>
+        <item>Transportation</item>
+        <item>Rent</item>
+        <item>Phone Bill</item>
+        <item>Water Bill</item>
+        <item>Gas Bill</item>
+        <item>Electricity Bill</item>
+        <item>Internet Bill</item>
+        <item>Television Bill</item>
+        <item>Insurance</item>
+        <item>Education</item>
+        <item>Pets</item>
+        <item>Shopping</item>
+        <item>Fitness</item>
+        <item>Makeup</item>
+        <item>Car Maintenance</item>
+        <item>Entertainment</item>
+        <item>Debt</item>
+        <item>Loan</item>
+        <item>Household Appliances</item>
+        <item>Personal Items</item>
+        <item>Gifts</item>
+        <item>Donations</item>
+        <item>Other</item>
+    </string-array>
+</resources>
